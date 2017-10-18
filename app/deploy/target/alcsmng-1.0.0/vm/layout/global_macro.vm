@@ -1,0 +1,115 @@
+#macro(enumSelect $label $name $enumName $currentVal $need)
+	<div>
+		<label class="control-label" for="$!name">$!label#if($!stringUtils.equals("true","$!need"))<span style="color:red">*</span>#end£∫</label>
+	</div>
+	<div class="span4">
+		<select id="$!name" name="$!name" >
+			<option value="">«Î—°‘Ò</option>	
+			#foreach ($opt in $enumOptFunction.enumList("$!enumName"))
+				<option value="$!opt.code"
+					#if($!stringUtils.equals("$!opt.code","$!currentVal")) 
+						selected="selected"
+					#end> 
+					$!opt.message
+				</option>
+			#end
+		</select>
+	</div>
+#end
+#macro(listSelect $label $name $currentProduct $need)
+	<div>
+		<label class="control-label" for="$!name">$!label#if($!stringUtils.equals("true","$!need"))<span style="color:red">*</span>#end£∫</label>
+	</div>
+	<div class="span4">
+		<select id="$!name" name="$!name" >
+			<option value="">«Î—°‘Ò</option>	
+			#foreach ($tmp in $!loanProductsUtils.getAllProductList())
+				<option value="$!tmp.prodCode"
+					#if($!stringUtils.equals("$!tmp.prodCode","$!currentProduct")) 
+						selected="selected"
+					#end> 
+					$!tmp.prodName
+				</option>
+			#end
+		</select>
+	</div>
+#end
+
+#macro(inputDiv $label  $name   $value $need )
+    <div>
+	<label class="control-label" for="$!name">$label#if($!stringUtils.equals("true","$!need"))<span style="color:red">*</span>#end£∫</label>
+	</div>
+	<div class="span4">
+		<input type="text" id="$!name" name="$!name" value="$!value" >
+    </div>
+#end
+#macro(inputDateDiv $label  $name   $value $need )
+    <div>
+	<label class="control-label" for="$!name">$label#if($!stringUtils.equals("true","$!need"))<span style="color:red">*</span>#end£∫</label>
+	</div>
+	<div class="span4">
+		<input type="text" id="$!name" name="$!name" value="$!value" onClick="WdatePicker();" style="width:125px" >
+    </div>
+#end
+#macro(inputMoneyDiv $label  $name   $value $unit $need )
+    <div>
+	<label class="control-label" for="$!name">$label#if($!stringUtils.equals("true","$!need"))<span style="color:red">*</span>#end£∫</label>
+	</div>
+	<div class="span4">
+		<input type="text" id="$!name" name="$!name" value="$!number.format("#0.00",$!value)"  style="width:125px" ><font style="vertical-align: bottom;">$!unit</font>
+    </div>
+#end
+#macro(inputRegionDiv $label  $name   $value  $need )
+		<div>
+		<label class="control-label" for="${name}">$label#if($!stringUtils.equals("true","$!need"))<span style="color:red">*</span>#end£∫</label>
+		</div>
+		<div  class="span2" style="width:12%">
+			<input type="hidden" name="$!{name}" id="$!{name}" value="$!value">
+			<select id="$!{name}Prov" class="province" name="${name}Prov" onchange="changeChooseProvince(this.value, '$!{name}');">
+	        </select>	
+	    </div>
+		<div  class="span2" style="margin-left:0;width:12%">
+			<select id="$!{name}City" name="$!{name}City" class="city" onchange="changeChooseCity(this.value,'$!{name}');">
+			</select>
+		</div>
+		<div  class="span2" style="margin-left:0;width:12%">
+			<select id="$!{name}District" class="seachdistrict" name="$!{name}District">
+			</select> 
+		</div>
+#end
+#macro(inputIndustriesDiv $label  $name   $value  $need )
+		<div>
+		<label class="control-label" for="${name}Child">$label#if($!stringUtils.equals("true","$!need"))<span style="color:red">*</span>#end£∫</label>
+		</div>
+		<div  class="span2" style="width:15%">
+			<input type="hidden" name="$!{name}" id="$!{name}" value="$!value">
+			<select id="$!{name}Par" class="Par" name="${name}Par" onchange="changeChooseParIndustries(this.value, '$!{name}','true');">
+	        </select>	
+	    </div>
+		<div  class="span2" style="margin-left:0;width:15%">
+			<select id="$!{name}Child" name="$!{name}Child" class="Child" onchange="changeChooseChildIndustries(this.value, '$!{name}');">
+				<option value="">«Î—°‘Ò</option>
+			</select>
+		</div>
+#end
+#macro(inputAddrDiv $label  $name   $regionValue $addrValue $need )
+		<div>
+		<label class="control-label" for="${name}">$label#if($!stringUtils.equals("true","$!need"))<span style="color:red">*</span>#end£∫</label>
+		</div>
+		<div  class="span2" style="width:12%">
+			<input type="hidden" name="$!{name}Code" id="$!{name}Code" value="$!regionValue">
+			<select id="$!{name}Prov" class="province" name="${name}Prov" onchange="changeChooseProvince(this.value, '$!{name}');">
+	        </select>	
+	    </div>
+		<div  class="span2" style="margin-left:0;width:12%">
+			<select id="$!{name}City" name="$!{name}City" class="city" onchange="changeChooseCity(this.value,'$!{name}');">
+			</select>
+		</div>
+		<div  class="span2" style="margin-left:0;	width:12%">
+			<select id="$!{name}District" class="seachdistrict" name="$!{name}District">
+			</select> 
+		</div>
+		<div  class="span4" style="margin-left:0;	width:40%">
+			<input  id="$!{name}" class="address" name="$!{name}" type="text" value="$!addrValue"/>
+		</div>
+#end

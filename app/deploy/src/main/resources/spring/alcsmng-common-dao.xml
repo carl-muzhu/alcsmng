@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName">
+    <!-- ======================================================================== -->
+    <!--  DAO定义。                                                               -->
+    <!-- ======================================================================== -->
+    <bean id="caseInfoDAO" class="com.yylc.alcsmng.common.dal.ibatis.IbatisCaseInfoDAO" parent="sqlMapClientDAO"/>
+    <bean id="assignInfoDAO" class="com.yylc.alcsmng.common.dal.ibatis.IbatisAssignInfoDAO" parent="sqlMapClientDAO"/>
+    <bean id="callRecordDAO" class="com.yylc.alcsmng.common.dal.ibatis.IbatisCallRecordDAO" parent="sqlMapClientDAO"/>
+    <bean id="contactInfoDAO" class="com.yylc.alcsmng.common.dal.ibatis.IbatisContactInfoDAO" parent="sqlMapClientDAO"/>
+    <bean id="userInfoDAO" class="com.yylc.alcsmng.common.dal.ibatis.IbatisUserInfoDAO" parent="sqlMapClientDAO"/>
+    <bean id="ruleInfoDAO" class="com.yylc.alcsmng.common.dal.ibatis.IbatisRuleInfoDAO" parent="sqlMapClientDAO"/>
+    <bean id="debtorInfoDAO" class="com.yylc.alcsmng.common.dal.ibatis.IbatisDebtorInfoDAO" parent="sqlMapClientDAO"/>
+</beans>

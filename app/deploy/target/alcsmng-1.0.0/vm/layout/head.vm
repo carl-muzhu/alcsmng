@@ -1,0 +1,57 @@
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK" />
+	<title>盈盈易贷-信贷运营支撑平台C-BOSS</title>
+	<style type="text/css">
+		.Clear{
+		    clear:both;
+		}
+		.tree-file {
+			background: url('$!staticServer/img/opa-icons-orange16.png') no-repeat -176px
+				-128px;
+		}
+		.tree-expanded {
+			background: url('$!staticServer/images/tree_icons.png') no-repeat -18px 0px;
+		}
+		
+		.tree-expanded-hover {
+			background: url('$!staticServer/images/tree_icons.png') no-repeat -50px 0px;
+		}
+		.tree-folder {
+			background: url('$!staticServer/img/opa-icons-color16.png') no-repeat 0 -79px;
+		}
+		
+		.tree-folder-open {
+			background: url('$!staticServer/img/opa-icons-color16.png') no-repeat 0 -79px;
+		}
+		.box-content{
+	        margin-bottom: 40px;
+		}
+	</style>
+
+	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js?v=$!v"></script>
+	<![endif]-->
+
+
+	<script type="text/javascript">
+		var basePath = "$!app_path";
+	</script>	
+	<!--以下资源继续使用本地-->
+	<script src="$!staticServer/js/xcConfirm.js"></script>
+	<script src="$!staticServer/js/colorbox/jquery.colorbox.js"></script>
+	<script src="$!staticServer/js/WdatePicker.js"></script>
+	<script src="$!staticServer/js/jquery.showLoading.js"></script>
+	<script src="$!staticServer/vm/js/common/validate.js?v=$!v"></script>
+	<script src="$!staticServer/vm/js/common/area.js?v=$!v"></script>
+	<script src="$!staticServer/vm/js/common/areaCode.js?v=$!v"></script>
+	<script src="$!staticServer/vm/js/common/bizArea.js?v=$!v"></script>
+	<script src="$!staticServer/vm/js/common/bops.js?v=$!v"></script>
+	<script src="$!staticServer/vm/js/common/bops.easyui.js?v=$!v"></script>
+	
+	<script src="$!staticServer/vm/js/common/bops.ajax.js?v=$!v"></script>
+	<script src="$!staticServer/vm/js/common/bops.alert.js?v=$!v"></script>
+	<script src="$!staticServer/vm/js/common/bops.render.js?v=$!v"></script>
+	<script src="$!staticServer/vm/js/common/bops.method.js?v=$!v"></script>
+	
+

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table sqlname="alcs_case_info">
+    <!--<resultMap id="RM-CASE-INFO" class="com.yylc.alcs.common.dal.dataobject.CaseInfoDO">-->
+    <!--<result property="caseid" column="case_id" javaType="int" jdbcType="INT" nullValue="0"/>-->
+    <!--<result property="loanId" column="loan_id" javaType="int" jdbcType="INT"/>-->
+    <!--<result property="debtorId" column="debtor_id" javaType="int" jdbcType="INT"/>-->
+    <!--<result property="itemName" column="item_name" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
+    <!--<result property="loanAmount" column="loan_amount" javaType="java.lang.Double" jdbcType="DOUBLE"/>-->
+    <!--<result property="pendingAmount" column="pending_amount" javaType="java.lang.Double" jdbcType="DOUBLE"/>-->
+    <!--<result property="repayAmount" column="repay_amount" javaType="java.lang.Double" jdbcType="DOUBLE"/>-->
+    <!--<result property="daysOverdue" column="days_overdue" javaType="int" jdbcType="INT"/>-->
+    <!--<result property="currentStatus" column="current_status" javaType="int" jdbcType="INT"/>-->
+    <!--<result property="currentResult" column="current_result" javaType="int" jdbcType="INT"/>-->
+    <!--<result property="assignFlag" column="assign_flag" javaType="int" jdbcType="INT"/>-->
+    <!--<result property="createTime" column="create_time" javaType="java.util.Date" jdbcType="DATETIME"/>-->
+    <!--<result property="updateTime" column="update_time" javaType="java.util.Date" jdbcType="DATETIME"/>-->
+    <!--</resultMap>-->
+
+    <operation name="queryByCaseIdList" multiplicity="many">
+        <extraparams>
+            <param name="caseIdList" javatype="java.util.List"/>
+            <param name="offset" javatype="int"/>
+            <param name="limit" javatype="int"/>
+        </extraparams>
+        <sql>
+            select *
+            from alcs_case_info
+        </sql>
+        <sqlmap>
+            <![CDATA[
+        select
+        *
+        FROM alcs_case_info
+        where case_id in
+        <iterate property="caseIdList" open="(" close=")" conjunction=",">
+        #caseIdList[]#
+        </iterate>
+        ORDER BY case_id DESC LIMIT #offset#,#limit#
+        ]]>
+        </sqlmap>
+    </operation>
+
+    <operation name="queryByUserIdList" multiplicity="many">
+        <extraparams>
+            <param name="userIdList" javatype="java.util.List"/>
+        </extraparams>
+        <sql>
+            select *
+            from alcs_case_info
+        </sql>
+        <sqlmap>
+            <![CDATA[
+          select
+            *
+            FROM alcs_case_info
+            where user_id in
+            <iterate property="userIdList" open="(" close=")" conjunction=",">
+                #userIdList[]#
+            </iterate>
+            ORDER BY create_time DESC
+        ]]>
+        </sqlmap>
+    </operation>
+
+    <operation name="queryCaseNotClosed" multiplicity="many">
+        <sql>
+            select *
+            from alcs_case_info
+        </sql>
+        <sqlmap>
+            <![CDATA[
+            select
+				*
+			 FROM alcs_case_info
+			WHERE current_status!=2
+			]]>
+        </sqlmap>
+    </operation>
+
+    <operation name="queryCaseNotAssign">
+        <sql>
+            select *
+            from alcs_case_info
+        </sql>
+        <sqlmap>
+            <![CDATA[
+            select
+				*
+			 FROM alcs_case_info
+			WHERE assign_flag=0
+			]]>
+        </sqlmap>
+    </operation>
+
+
+    <operation name="selectForPageCount" resultClass="int">
+        <extraparams>
+            <param name="caseIdList" javatype="java.util.List"/>
+        </extraparams>
+        <sql>
+            SELECT
+            COUNT(1)
+            FROM alcs_case_info
+        </sql>
+        <sqlmap>
+            <![CDATA[
+            SELECT
+            COUNT(1)
+            FROM alcs_case_info
+            <dynamic prepend="where">
+                <isNotEmpty prepend="and" property="idList">
+                    case_id in
+                    <iterate property="idList" open="(" close=")" conjunction=",">
+                        #caseIdList[].caseId#
+                    </iterate>
+                </isNotEmpty>
+            </dynamic>
+			]]>
+        </sqlmap>
+    </operation>
+
+    <operation name="queryCaseByCaseId" resultType="object" paramType="int">
+        <sql>
+            select *
+            from alcs_case_info where case_id=?
+        </sql>
+    </operation>
+
+    <operation name="updateCaseForCurrentResult" paramType="object">
+        <sql>
+            update alcs_case_info
+            set current_result=? where case_id=?
+        </sql>
+    </operation>
+
+    <operation name="updateCaseForDaysOverdue" paramType="object">
+        <sql>
+            update alcs_case_info
+            set days_overdue=? where case_id=?
+        </sql>
+    </operation>
+
+    <operation name="queryCaseForM1" multiplicity="many">
+        <sql>
+            select *
+            from alcs_case_info
+        </sql>
+        <sqlmap>
+            <![CDATA[
+            select *
+            from alcs_case_info
+            where days_overdue between 4 and 7 and current_status!=2
+            			]]>
+        </sqlmap>
+    </operation>
+</table>

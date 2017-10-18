@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="alcsmng-deploy">
+        <wb-resource deploy-path="/WEB-INF/web.xml" source-path="/WebContent/WEB-INF/web.xml"/>
+        <wb-resource deploy-path="/" source-path="/target/m2e-jee/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module archiveName="alcsmng-web-home-1.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/alcsmng-web-home/alcsmng-web-home">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="alcsmng-biz-shared-1.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/alcsmng-biz-share/alcsmng-biz-share">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="alcsmng-core-service-1.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/alcsmng-core-service/alcsmng-core-service">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="alcsmng-common-service-integration-1.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/alcsmng-common-service-integration/alcsmng-common-service-integration">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="alcsmng-common-util-1.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/alcsmng-common-util/alcsmng-common-util">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="alcsmng-core-model-1.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/alcsmng-core-model/alcsmng-core-model">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="alcsmng-common-dal-1.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/alcsmng-common-dal/alcsmng-common-dal">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="alcsmng-biz-task-1.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/alcsmng-biz-task/alcsmng-biz-task">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="/alcsmng"/>
+        <property name="java-output-path" value="/alcsmng-deploy/src/main/webapp/WEB-INF/classes"/>
+    </wb-module>
+</project-modules>

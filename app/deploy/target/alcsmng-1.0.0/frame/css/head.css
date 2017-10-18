@@ -1,0 +1,224 @@
+.wrapper{
+	min-height: 100%;
+    width: 1280px;
+    margin: 0 auto;
+}	
+.mainContent{
+	width:1260px;
+	margin-left:20px;
+	position: relative;
+}
+/********中间大模块*******/
+/*左侧导航样式*/
+.leftColumn{
+	width:157px;
+	border-left:1px solid #D4D4D4;
+	border-right:1px solid #D4D4D4;
+	height:100%;
+	background-color:#E6E6E6;
+	float:left;
+}
+.rightContent{
+	float:left;
+}
+.topColumn{
+	height:24px;
+	width:1080px;
+	border-right:1px solid #D2D2D2;
+	border-top:1px solid #D2D2D2;
+	border-bottom:1px solid #D2D2D2;
+	color:#FF0000;
+	background-color:#E6E6E6;
+	line-height: 24px;
+    text-indent: 10px;
+}
+.rightColumn{
+	border-right:1px solid #D2D2D2;
+	width:1080px;
+}
+.menus{
+	background-color:#EDEDED;
+}
+.menus .menu_item{
+	height:34px;
+	border-bottom:1px solid #BFBFBF;
+	position:relative;
+	cursor:pointer;
+}
+.item_icon{
+	width: 36px;
+    height: 20px;
+    float: left;
+    margin-top: 8px;
+}
+.power_icon{
+    background: transparent url(../../resources/images/sideToolBar.png) no-repeat scroll 0px -58px;
+}
+.user_icon{
+	background: transparent url(../../resources/images/sideToolBar.png) no-repeat scroll 0px -93px;
+}
+.hospital_icon{
+	background: transparent url(../../resources/images/sideToolBar.png) no-repeat scroll 0px -128px;
+}
+.knowledge_icon{
+	background: transparent url(../../resources/images/sideToolBar.png) no-repeat scroll 0px -162px;
+}
+.template_icon{
+	background: transparent url(../../resources/images/sideToolBar.png) no-repeat scroll 0px -198px;
+}
+.item_title{
+	float: left;
+    font-size: 14px;
+    margin-top: 9px;
+}
+.arrow_icon{
+	width: 20px;
+    height: 20px;
+    float: right;
+    margin-top: 8px;
+}
+.arrow_up{   
+    background: transparent url(../../resources/images/sideToolBar.png) no-repeat scroll -43px -157px;
+}
+.arrow_down{
+    background: transparent url(../../resources/images/sideToolBar.png) no-repeat scroll -43px -180px;
+}
+.menus .second_item ul,.menus .third_item ul{
+    border-bottom: 1px solid #BFBFBF;
+}
+.menus .second_item ul li{
+    height: 30px;
+    text-indent: 36px;
+    line-height: 30px;
+    background-color: #D8D9DB;
+    cursor:pointer;
+}
+.menus .second_item ul .second_has_item{
+	background-color:#B7B7B7;
+	color:#FFFFFF;
+	margin-left:-1px;
+}
+.menus li ul li:hover{
+	background-color: #287FCE;
+	color: #fff;
+    margin-left: -1px;
+    width: 158px;
+}
+.menus .third_item ul li{
+    height: 30px;
+    text-indent: 48px;
+    line-height: 30px;
+    background-color: #D8D9DB;
+    cursor:pointer;
+}
+.menus li ul .current{
+    background-color: #287FCE;
+    color: #fff;
+    margin-left: -1px;
+    width: 158px;
+}
+.jt_down{
+	width: 22px;
+    height: 20px;
+    float: right;
+    margin-top: 8px;
+    background: transparent url(../../resources/images/jt_down.png) no-repeat scroll 0 0;
+}
+.jt_up{
+	width: 22px;
+    height: 20px;
+    float: right;
+    margin-top: 8px;
+    background: transparent url(../../resources/images/jt_up.png) no-repeat scroll 0 0;
+}
+.hide{
+    display:none;
+}
+.show{
+	display:block;
+}
+/********中间大模块*******/
+/*顶部导航样式*/
+.head{
+	width:100%;
+	min-width:1240px;
+	height:50px;
+}
+.head_top{
+	height:50px;
+	width: 1240px;
+	margin:0px auto;
+	background:#287FCE;
+}
+.head_top .head_logo{
+	width: 284px;
+    height: 40px;
+    float: left;
+    padding-left: 20px;
+    padding-top: 3px;
+}
+.head_top .logo{
+	width:284px;
+	height:40px;
+	float:left;
+	/*background:transparent url(../../resources/images/sideToolBar.png) no-repeat scroll -8px -4px;*/
+}
+.word{
+	margin-top: 10px;
+}
+.head_oper{
+	float:right;
+}
+.head_nav{
+	color:#FFFFFF;
+	margin-top:15px;
+	margin-right:10px;
+}
+.head_nav li{
+	float:left;
+	margin-left:12px;
+	padding: 1px 4px 1px 2px;
+	border:1px solid #287FCE;
+}
+.cursor{
+	cursor:pointer;
+}
+.head_nav .cursor:hover{
+	border:1px solid #0D6189;
+}
+.head_nav li i{
+	width:18px;
+	height:18px;
+	float:left;
+	margin-right:6px;
+}
+.head_oper .user{	
+	background:transparent url(../../resources/images/sideToolBar.png) no-repeat scroll -44px -130px;
+}
+.head_oper .password{
+	background:transparent url(../../resources/images/sideToolBar.png) no-repeat scroll -77px -130px;
+}
+.head_oper .loginOut{
+	background:transparent url(../../resources/images/sideToolBar.png) no-repeat scroll -108px -129px;
+}
+/*底部样式*/
+.bottom{
+	width:1238px;
+	height:24px;
+	margin:0 auto;
+	background-color:#E3E3E3;
+	border:1px solid #D2D2D2;
+	text-align:center;
+	color:#999999;
+	line-height: 24px;
+}
+
+
+
+
+
+
+
+
+
+

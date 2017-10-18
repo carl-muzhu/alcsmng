@@ -1,0 +1,32 @@
+<!-- left menu starts -->
+
+<div class="sidebar2">
+	<ul class="sidebar2-nav">
+		#foreach($key in $!topMenus)
+			#if($key.type == 1)
+				<li #if($!key.id==$!resourceModule.id) class="sidebar2-subnav $!key.resUrl current module-current" #else class="sidebar2-subnav $!key.resUrl" #end>
+		            <h3 class="text"><span>$!key.name</span></h3>
+		            <ul class="sidebar2-subnav-menu" #if($!key.id==$!resourceModule.id) style="display: block;" #end>
+				        #foreach($child in $!functionMenu)
+							#if($!stringUtils.equals("$!child.parentKey","$!key.resKey"))
+								#if($!stringUtils.endsWith("$!child.resUrl",".htm"))
+									#set($pfix="?")
+								#elseif($!stringUtils.endsWith("$!child.resUrl",".htm?"))
+									#set($pfix="")
+								#else
+									#set($pfix="&")
+								#end
+								#set($resourceId="resourceId=")
+								<li #if("$!child.id"=="$!menu.id") class="sidebar2-subnav-item current" #else class="sidebar2-subnav-item" #end>
+									<h4 class="text"><a href="#" onClick="javascript:showScreenCover();window.location='$!staticServer$!child.resUrl$!pfix$!resourceId$!child.id';"><span>$!child.name</span></h4></a>
+								</li>
+							#end
+						#end
+		            </ul>
+		        </li>
+			#end
+	    #end
+    </ul> 
+</div> 
+
+<!-- left menu ends -->

@@ -1,0 +1,15 @@
+com\yylc\alcsmng\core\service\CallRecordComponent.class
+com\yylc\alcsmng\core\service\CaseInfoComponent.class
+com\yylc\alcsmng\core\service\impl\AssignInfoComponentImpl.class
+com\yylc\alcsmng\core\service\DebtorInfoComponent.class
+com\yylc\alcsmng\core\service\impl\CaseInfoComponentImpl.class
+com\yylc\alcsmng\core\service\UserInfoComponent.class
+com\yylc\alcsmng\core\service\impl\RuleInfoComponentImpl.class
+com\yylc\alcsmng\core\service\RuleInfoComponent.class
+com\yylc\alcsmng\core\service\AssignLogComponent.class
+com\yylc\alcsmng\core\service\AssignInfoComponent.class
+com\yylc\alcsmng\core\service\impl\ContactInfoComponentImpl.class
+com\yylc\alcsmng\core\service\ContactInfoComponent.class
+com\yylc\alcsmng\core\service\impl\UserInfoComponentImpl.class
+com\yylc\alcsmng\core\service\impl\CallRecordComponentImpl.class
+com\yylc\alcsmng\core\service\impl\DebtorInfoComponentImpl.class

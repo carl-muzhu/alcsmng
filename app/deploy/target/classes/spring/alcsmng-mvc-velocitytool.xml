@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
+	default-autowire="byName">
+
+	<!-- vm页面用到的工具类和共用bean, 在这里加入 -->
+	<bean id="velocityBeansMap" class="java.util.HashMap">
+		<constructor-arg>
+			<map merge="true">
+				<entry key="staticServer" value="${static_server_url}" />
+				<entry key="v" value-ref="staticVersionUtil" />
+				<entry key="stringEscapeUtils" value-ref="stringEscapeUtils" />
+				<entry key="date" value-ref="date" />
+				<entry key="math" value-ref="math" />
+				<entry key="number" value-ref="number" />
+				<entry key="listUtil" value-ref="listUtil" />
+				<entry key="security" value-ref="security" />
+				<entry key="dateUtils" value-ref="dateUtils" />
+				<entry key="numberUtils" value-ref="numberUtils" />
+				<entry key="stringUtils" value-ref="stringUtils" />
+				<entry key="systemHelper" value-ref="systemHelper" />
+				<entry key="enumOptFunction" value-ref="enumOptFunction" />
+			</map>
+		</constructor-arg>
+	</bean>
+
+
+	<bean id="staticVersionUtil" class="com.yylc.alcsmng.common.utils.StaticVersionUtil" />
+	<bean id="stringEscapeUtils" class="org.apache.commons.lang.StringEscapeUtils"
+		scope="singleton" />
+	<bean id="date" class="org.apache.velocity.tools.generic.DateTool"
+		scope="singleton" />
+	<bean id="math" class="org.apache.velocity.tools.generic.MathTool"
+		scope="singleton" />
+	<bean id="number" class="org.apache.velocity.tools.generic.NumberTool"
+		scope="singleton" />
+	<bean id="security"
+		class="com.yylc.web.frameset.smvc.security.web.utils.VelocitySecurityUtil"
+		scope="singleton" />
+	<bean id="numberUtils" class="com.yylc.common.lang.NumberUtils"
+		scope="singleton" />
+	<bean id="listUtil" class="org.apache.velocity.tools.generic.ListTool"
+		scope="singleton" />
+	<bean id="dateUtils" class="com.yylc.alcsmng.common.utils.DateUtils"
+		scope="singleton" />
+	<bean id="stringUtils" class="com.yylc.alcsmng.common.utils.StringUtilsExt"
+		scope="singleton" />
+	<bean id="systemHelper" class="com.yylc.platform.common.helper.SystemHelper"
+		scope="singleton" />
+	<bean id="enumOptFunction" class="com.yylc.alcsmng.common.tags.EnumOptFunction"
+		scope="singleton" />
+
+</beans>

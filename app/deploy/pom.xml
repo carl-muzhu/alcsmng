@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+        <groupId>com.yylc.alcsmng</groupId>
+        <artifactId>alcsmng-parent</artifactId>
+        <version>1.0.0</version>
+		<relativePath>../../pom.xml</relativePath>
+	</parent>
+	
+	<url>http://www.longyinglicai.com</url>
+	<artifactId>alcsmng</artifactId>
+	<name>alcsmng-deploy</name>
+	<packaging>war</packaging>
+
+	<properties>
+        <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
+        <project.build.sourceEncoding>GBK</project.build.sourceEncoding>
+        <deploy.type>dev</deploy.type>
+    </properties>
+		
+	<dependencies>
+		<dependency>
+			<groupId>com.yylc.alcsmng</groupId>
+			<artifactId>alcsmng-web-home</artifactId>
+            <version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.yylc.alcsmng</groupId>
+			<artifactId>alcsmng-biz-task</artifactId>
+            <version>${project.version}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.tuckey</groupId>
+		    <artifactId>urlrewritefilter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity-tools</artifactId>
+			<version>2.0</version>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<finalName>alcsmng-1.0.0</finalName>
+	    <plugins>
+	        <plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-compiler-plugin</artifactId>
+		        <version>3.1</version>
+		        <configuration>
+		            <source>1.7</source>
+		            <target>1.7</target>
+		        </configuration>
+		    </plugin>
+	    </plugins>
+	</build>
+</project>

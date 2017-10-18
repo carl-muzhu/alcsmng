@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<link rel="stylesheet" href="$!staticServer/css/default.css?v=$!v" />
+	#parse("/layout/head.vm")
+	<script type="text/javascript" src="$!staticServer/vm/js/common/dialogIframeDefault.js?v=$!v"></script>
+</head>
+<body>
+	 $screen_content
+	<div id="fullScreenCover">
+	</div>
+</body>
+</html>

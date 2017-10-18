@@ -1,0 +1,37 @@
+#set ($perPage = $!pageView.pageNow - 1)
+#set ($nextPage = $!pageView.pageNow + 1)
+<form id="pagination" method="POST" style="padding-left:10px;">
+	<input type="hidden" name="pageNow" value="$!pageView.pageNow">
+	<div >
+	显示第 $!math.add($!number.integer($!pageView.startPage),1) 条到 第 $!math.min($!math.add($!pageView.startPage,$!pageView.pageSize),$!pageView.rowCount) 条 共 $!pageView.rowCount 条记录
+	</div>
+	<div class="pagination">
+	  <ul>
+	  	#if($!pageView.pageNow==1)
+	  	<li><a href="#"  class="page-cur" page="0"><font color="grey">首页</font></a></li>
+	  	<li><a href="#"   class="page-cur" page="0"><font color="grey">上一页</font></a></li>
+	  	#else
+	  	<li><a href="#"  page="1">首页</a></li>
+		<li><a href="#" page="$!perPage">上一页</a></li>
+		#end
+		#if($!pageView.pageNow==$!pageView.pageCount)
+		<li><a href="#"  class="page-cur" page="$!nextPage"><font color="grey">下一页</font></a></li>
+		<li><a href="#"  class="page-cur" page="$!pageView.pageCount"><font color="grey">末页</font></a></li>
+		#else
+		<li><a href="#" page="$!nextPage">下一页</a></li>
+		<li><a href="#" page="$!pageView.pageCount">末页</a></li>
+		#end
+		<li style="vertical-align: bottom;">
+		<select name="pageSize" id="pageSize" style="height: 25px; margin-top: 0px;">
+			<option value="20"#if($!pageView.pageSize&&$!pageView.pageSize==20)selected#end>20条/页</option>
+			<option value="200"#if($!pageView.pageSize&&$!pageView.pageSize==200)selected#end>200条/页</option>
+			<option value="500"#if($!pageView.pageSize&&$!pageView.pageSize==500)selected#end>500条/页</option>
+			<option value="1000"#if($!pageView.pageSize&&$!pageView.pageSize==1000)selected#end>1000条/页</option>
+		</select>
+		</li>
+	  </ul>
+	</div>     
+</form>
+<input type="hidden" name="pageCount" value="$!pageView.pageCount"/> 
+<script src="$!{staticServer}/layUi/jquery/jquery-1.8.0.min.js"></script>  
+<script src="$!staticServer/vm/js/layout/pagination.js?v=$!v"></script>

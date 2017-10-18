@@ -1,0 +1,5 @@
+#parse("layout/alert-error.vm")
+#parse("layout/alert-info.vm")
+#parse("layout/alert-success.vm")
+#parse("layout/alert-warning.vm")
+<script src="$!staticServer/vm/js/common/alerts.js?v=$!v"></script>

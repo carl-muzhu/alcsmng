@@ -1,0 +1,5 @@
+<div class="alert alert-error" tag="error" style="display:none">
+	<button type="button" class="close" data-dismiss="alert">¡Á</button>
+	<strong></strong> 
+	<p></p>
+</div>

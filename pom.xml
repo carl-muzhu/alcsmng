@@ -1,0 +1,229 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.yylc.alcsmng</groupId>
+    <artifactId>alcsmng-parent</artifactId>
+    <version>1.0.0</version>
+    <name>alcsmng Parent</name>
+    <url>http://www.longyinglicai.com</url>
+    <description>alcsmng Application Parent</description>
+
+    <properties>
+        <project.build.sourceEncoding>GBK</project.build.sourceEncoding>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>yylc-dev</id>
+            <url>http://122.225.223.178:8001/content/repositories/yylc-dev/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>central_prod</id>
+            <url>http://122.225.223.178:8001/content/repositories/yylc-prod/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>central</id>
+            <url>http://122.225.223.178:8001/content/repositories/central/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+
+    </repositories>
+
+    <scm>
+        <connection>scm:svn:http://192.168.2.222/svn/alcsmng</connection>
+        <developerConnection>scm:svn:http://192.168.2.222/svn/alcsmng</developerConnection>
+        <tag>HEAD</tag>
+        <url>http://192.168.2.222/svn/alcsmng</url>
+    </scm>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>central</id>
+            <url>http://122.225.223.178:8001/content/repositories/central/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.yylc.framework</groupId>
+                <artifactId>core-bom</artifactId>
+                <version>1.0.4</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>net.sf.dozer</groupId>
+                <artifactId>dozer</artifactId>
+                <version>4.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.yylc.event</groupId>
+                <artifactId>yylc-common-event</artifactId>
+                <version>2.0.3</version>
+            </dependency>
+            <!-- �ļ�����start -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>simpleimage</artifactId>
+                <version>1.2.3</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sun.media</groupId>
+                <artifactId>jai_codec</artifactId>
+                <version>1.1.2_01</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.media</groupId>
+                <artifactId>jai_core</artifactId>
+                <version>1.1.3</version>
+            </dependency>
+            <!-- �ļ�����end -->
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <encoding>GBK</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <includes>
+                        <include>**/*Test*.java</include>
+                    </includes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.0.2</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <downloadSources>true</downloadSources>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>maven-jetty-plugin</artifactId>
+                <version>6.1.10</version>
+                <configuration>
+                    <connectors>
+                        <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+                            <port>8080</port>
+                            <maxIdleTime>30000</maxIdleTime>
+                        </connector>
+                    </connectors>
+                    <contextPath>/alcsmng</contextPath>
+                    <stopPort/>
+                    <stopKey>exit</stopKey>
+                </configuration>
+            </plugin>
+
+            <!--<plugin>-->
+            <!--<groupId>org.apache.maven.plugins</groupId>-->
+            <!--<artifactId>maven-deploy-plugin</artifactId>-->
+            <!--<version>2.8.2.1</version>-->
+            <!--<configuration>-->
+            <!--<skip>true</skip>-->
+            <!--</configuration>-->
+            <!--</plugin>-->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.4.1</version>
+                <configuration>
+                    <tagNameFormat>v@{project.version}</tagNameFormat>
+                    <tagBase>http://192.168.2.222/svn/alcsmng/tags</tagBase>
+                    <branchBase>http://192.168.2.222/svn/alcsmng/branches</branchBase>
+                    <providerImplementations>
+                        <svn>javasvn</svn>
+                    </providerImplementations>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.google.code.maven-scm-provider-svnjava</groupId>
+                        <artifactId>maven-scm-provider-svnjava</artifactId>
+                        <version>2.0.6</version>
+                        <scope>compile</scope>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.1.1</version>
+                <configuration>
+                    <webXml>WebContent/WEB-INF/web.xml</webXml>
+                    <webResources>
+                        <resource>
+                            <targetPath>.</targetPath>
+                            <directory>WebContent</directory>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
+        </plugins>
+
+    </build>
+
+    <packaging>pom</packaging>
+    <modules>
+        <module>app/common/dal</module>
+        <module>app/common/util</module>
+        <module>app/core/model</module>
+        <module>app/core/service</module>
+        <module>app/biz/shared</module>
+        <module>app/biz/task</module>
+        <module>app/common/service/integration</module>
+        <module>app/web/home</module>
+        <module>app/deploy</module>
+        <module>app/test</module>
+    </modules>
+</project>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="$!{staticServer}/layUi/layui/css/layui.css"  media="all">
+</head>
+<body>
+<div id="logo_transparent" align="center" style="padding-top:70px;">
+
+<i class="layui-icon" style="font-size: 30px; color: #1E9FFF;">&#xe616;</i>
+²Ù×÷³É¹¦
+</div>
+</body>
+</html>

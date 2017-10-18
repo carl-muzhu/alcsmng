@@ -1,0 +1,3 @@
+com\yylc\alcsmng\common\service\intergration\ServiceConstants.class
+com\yylc\alcsmng\common\service\intergration\query\CaseInfoQueryBase.class
+com\yylc\alcsmng\common\service\intergration\enums\AlcsResultCodeEnum.class

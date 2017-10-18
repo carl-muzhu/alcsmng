@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.yylc.alcsmng</groupId>
+		<artifactId>alcsmng-parent</artifactId>
+		<version>1.0.0</version>
+		<relativePath>../../../pom.xml</relativePath>
+	</parent>
+
+	<artifactId>alcsmng-core-service</artifactId>
+	<name>alcsmng-core-service</name>
+	<packaging>jar</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.yylc.alcsmng</groupId>
+			<artifactId>alcsmng-common-service-integration</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.yylc.alcsmng</groupId>
+			<artifactId>alcsmng-core-model</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.yylc.alcsmng</groupId>
+			<artifactId>alcsmng-common-dal</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+</project>

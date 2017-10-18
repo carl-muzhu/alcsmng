@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<link rel="stylesheet" href="$!staticServer/css/default-list.css?v=$!v" />
+	#parse("/layout/head.vm")
+	<script src="$!staticServer/vm/js/common/default.js?v=$!v"></script>
+</head>
+
+<body style="overflow:-Scroll;overflow-y:hidden">
+		<div class="wrap lay_flex lay_vertical">
+        <div class="bottom lay_flex lay_flex_1">
+            <div class="right lay_flex lay_flex_1 lay_vertical">
+            	<div id="nav-part" style="margin-left:10px;margin-top:5px;">
+				<ul class="breadcrumb">
+					#if($!stringUtils.isNotBlank($!resourceModule.name))
+					<li>
+						<a href="$!staticServer/$!moduleUrl">$!resourceModule.name</a>#if($!stringUtils.isNotBlank($!menu.name)||$!stringUtils.isNotBlank($!actionName))<span class="divider">></span>#end
+					</li>
+					#end
+					#if($!stringUtils.isNotBlank($!menu.name))
+					<li>
+						<a href="$!staticServer/$!menuUrl">$!menu.name</a>#if($!stringUtils.isNotBlank($!actionName))<span class="divider">></span>#end
+					</li>
+					#end
+					#if($!stringUtils.isNotBlank($actionName))
+					<li>
+						$!actionName
+					</li>
+					#end
+				</ul>
+				</div>
+				$screen_content
+            </div>
+        </div>
+    </div>
+	
+</body>
+</html>

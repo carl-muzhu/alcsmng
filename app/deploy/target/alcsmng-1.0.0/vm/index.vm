@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="$!{staticServer}/layUi/layui/css/layui.css"  media="all">
+</head>
+
+<body>
+<form  class="layui-form"  action="">
+<div id="logo_transparent" align="center" style="padding-top:70px;">
+    <div id="logo">
+        <img src="$!{staticServer}/img/frame/logo.png"/>
+    </div>
+    <div id="transparent">
+        <h1 style="font-size:24px;padding-top:30px;">盈盈有钱催收系统</h1>
+    </div>
+</div>
+<div id="login_form" align="center" style="padding-top:35px;">
+	<div> 
+    <input type="text" id="account" placeholder="请输入用户名" class="layui-input" name="account" required lay-verify="required" autocomplete="off" style="height:40px; width:300px; border-radius:3px;"/>
+    </div> 
+    <div id="invalid_tel_warn" style="display:none;">
+        <h6 style="color:red;">用户名或密码有误</h6>
+    </div>
+    <input type="password" id="password" name="password" placeholder="请输入密码" class="layui-input" required lay-verify="required" autocomplete="off" style="height:40px; width:300px;border-radius:3px;"/>
+    <div id="invalid_password_warn" style="display:none;">
+        <h6 style="color:red;">用户名或密码有误</h6>
+    </div>
+    <div style ="text-align:center; "> 
+    <input type="text" id="checkcode" placeholder="验证码" class="layui-input" name="checkcode" required lay-verify="required" autocomplete="off" width="50%" style="height:40px; width:200px; display:inline-block;"/>
+    <img src="$!{staticServer}/login/checkcode.htm" id="img" onclick="this.src='$!{staticServer}/login/checkcode.htm?d='+Math.random();"  style="height:40px;vertical-align: middle; width:96px; display:inline-block;"/>
+    </div>
+</div>
+
+<div  style="text-align: center;padding-top:10px; padding-bottom: 30px;">
+	<button class="layui-btn" lay-submit lay-filter="passwordSet"  style="width:300px; background:#EF0000;">提交</button>
+</div>
+</form>
+<script src="$!{staticServer}/layUi/jquery/jquery-1.8.0.min.js"></script>  
+<script src="$!{staticServer}/layUi/layui/layui.js" charset="utf-8"></script>
+<script>
+layui.use(['jquery','form', 'layedit', 'laydate'], function(){
+  var form = layui.form;
+  var $= layui.jquery
+  ,layer = layui.layer
+  ,layedit = layui.layedit
+  ,laydate = layui.laydate;
+	form.on('submit(passwordSet)', function(data){       
+	 	var account = jQuery("#account").val();
+        var password = jQuery("#password").val();
+        var checkcode = jQuery("#checkcode").val();
+        
+        jQuery.post('$!{staticServer}/login/checkLogin.do',
+        {account: account, password: password,checkcode:checkcode},
+        function(res){
+	    	if(!res._succ){
+	            if (res.err_code == "NULL_ARGUMENT") {
+	                jQuery("#invalid_tel_warn").show();
+	            } else if (res.err_code == "DATA_ERROR") {
+	          		jQuery("#invalid_password_warn").show();
+	            }else if (res.err_code == "CODE_ERROR") {
+	          		layer.msg("验证码错误");
+	            }else{
+	            	var code = document.getElementById('checkcode');
+	            	code.attr("src",'$!{staticServer}/login/checkcode.htm?d='+Math.random());
+	            	layer.msg(res.err_msg);
+	            }
+	         } else {
+	        	window.location.replace("http://192.168.6.57:8080/alcsmng/login/loginMain.htm");
+	         }
+           
+        }, "json");
+        return false;
+	});
+});
+</script>
+</body>
+</html>

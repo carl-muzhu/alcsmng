@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+}
+
+input {
+    font-size: 12px;
+    font-family: "Microsoft YaHei", "Î¢ÈíÑÅºÚ";
+}
+
+.box {
+    position: absolute;
+    top: 50%;
+    margin-top: -280px;
+    width: 100%;
+    background-color: mediumblue;
+}
+
+.header {
+    margin-left: 32px;
+    margin-top: 15px;
+}
+
+.main {
+    position: relative;
+    height: 420px;
+    background: #598bd0;
+    margin-top: 18px;
+
+}
+
+.aside {
+    position: absolute;
+    margin-left: 800px;
+    top: 60px;
+    box-sizing: border-box;
+    width: 280px;
+    height: 300px;
+    padding: 32px 25px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 13px rgba(6, 30, 59, 0.39);
+}
+
+.aside p {
+    font-size: 18px;
+    margin-left: 30px;
+    font-weight: 900;
+    margin-bottom: 27px;
+}
+
+.aside > div {
+    height: 55px;
+    position: relative;
+}
+
+.aside input {
+    width: 230px;
+    border-radius: 20px;
+    line-height: 18px;
+}
+
+.input {
+    box-sizing: border-box;
+    border: 1px solid #c1c1c1;
+    font-size: 14px;
+    padding: 11px 0 11px 45px;
+}
+
+.input:hover {
+    border: 1px solid #4a6db1;
+}
+
+.user {
+    width: 16px;
+    height: 16px;
+    top: 12px;
+    left: 16px;
+    background-position: -2px -2px;
+}
+
+.lock {
+    background-position: -25px -2px;
+}
+
+.aside .remember {
+    height: 38px;
+    padding-left: 16px;
+}
+
+.rect {
+    float: left;
+    margin-top: -3px;
+    margin-right: 8px;
+    line-height: 40px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #dcdcdc;
+    cursor: pointer;
+}
+
+.yes {
+    background-position: -2px -22px;
+    width: 14px;
+    height: 9px;
+    top: 4px;
+    left: 20px;
+}
+
+.login_btn {
+    background: #f89330;
+    color: #fff;
+    border: 0;
+    font-size: 16px;
+    margin-bottom: 38px;
+    cursor: pointer;
+    height: 40px;
+}
+
+.login_btn:hover {
+    background: #e78321;
+}
+
+.footer {
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    color: #3b71b9;
+}

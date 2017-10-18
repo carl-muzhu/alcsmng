@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
+       default-autowire="byName">
+
+    <context:annotation-config/>
+
+    <context:component-scan base-package="com.yylc.alcsmng"/>
+
+    <bean id="velocityConfigurer"
+          class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+        <property name="resourceLoaderPath" value="/vm/" />
+        <property name="configLocation" value="classpath:config/velocity.properties" />
+        <property name="velocityProperties">
+            <props>
+                <prop key="directive.foreach.counter.name">loopCounter</prop>
+                <prop key="directive.foreach.counter.initial.value">0</prop>
+                <prop key="input.encoding">GBK</prop>
+                <prop key="output.encoding">GBK</prop>
+                <prop key="contentType">text/html;charset=GBK</prop>
+            </props>
+        </property>
+    </bean>
+
+
+    	<bean id="viewResolver"
+		class="com.yylc.web.frameset.smvc.view.YingyinglicaiVelocityViewResolver">
+		<property name="order" value="0" />
+		<property name="prefix" value="" />
+		<property name="suffix" value=".vm" />
+		<property name="contentType" value="text/html;charset=GBK" />
+		<property name="beansMap" ref="velocityBeansMap" />
+		<property name="viewClass"
+			value="com.yylc.web.frameset.smvc.view.VelocityContextToolBox">
+		</property>
+		<property name="exposeRequestAttributes" value="true" />
+		<property name="exposeSpringMacroHelpers" value="true" />
+		<property name="exposeSessionAttributes" value="true" />
+		<property name="requestContextAttribute" value="rc" /> 
+		<property name="layoutUrl" value="layout/default.vm" />
+	</bean>
+</beans>

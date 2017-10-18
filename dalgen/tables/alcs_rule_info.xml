@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table sqlname="alcs_rule_info">
+    <!--主管查看案例用-->
+    <operation name="selectM0ByLocationCode" multiplicity="many" paramType="int">
+        <extraparams>
+            <param name="locationCode" javatype="int"/>
+        </extraparams>
+        <sql>
+            select *
+            from alcs_rule_info
+        </sql>
+        <sqlmap>
+            <![CDATA[
+        select *
+            from alcs_rule_info
+            where location_code=#locationCode#
+            ORDER BY create_time desc
+        ]]>
+        </sqlmap>
+    </operation>
+
+    <operation name="saveRuleInfo">
+        <sql>
+            INSERT INTO alcs_rule_info (
+            rule_id,
+            user_id,
+            user_name,
+            location_code,
+            rule_type_code,
+            rule_name,
+            create_time,
+            update_time
+            )
+            VALUES (?,?,?,?,?,?,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)
+        </sql>
+    </operation>
+
+    <operation name="deleteByRuleId" paramType="int">
+        <sql>
+            delete from alcs_rule_info
+            where rule_id = ?
+        </sql>
+    </operation>
+
+    <operation name="queryRuleByRuleId" paramType="int">
+        <sql>
+            select * from alcs_rule_info
+            where rule_id = ?
+        </sql>
+    </operation>
+
+    <operation name="pageRuleForAdmin" multiplicity="many">
+        <extraparams>
+            <param name="offset" javatype="int"/>
+            <param name="limit" javatype="int"/>
+        </extraparams>
+        <sql>
+            select *
+            from alcs_rule_info
+        </sql>
+        <sqlmap>
+            <![CDATA[
+        select * from alcs_rule_info
+        ORDER BY location_code DESC LIMIT #offset#,#limit#
+        ]]>
+        </sqlmap>
+    </operation>
+
+
+    <operation name="selectByTeamLeaderId" multiplicity="many">
+        <extraparams>
+            <param name="teamLeaderId" javatype="java.lang.String"/>
+        </extraparams>
+        <sql>
+            select * from alcs_rule_info
+        </sql>
+        <sqlmap>
+            <![CDATA[
+           select * from alcs_rule_info where team_leader_ids like #teamLeaderId#
+            ]]>
+        </sqlmap>
+    </operation>
+
+    <operation name="pageCountForAdmin" resultClass="int">
+        <sql>
+            SELECT
+            COUNT(1)
+            FROM alcs_rule_info
+        </sql>
+        <sqlmap>
+            <![CDATA[
+           SELECT
+            COUNT(1)
+            FROM alcs_rule_info
+			]]>
+        </sqlmap>
+    </operation>
+
+    <operation name="selectForPageCount" resultClass="int">
+        <extraparams>
+            <param name="locationCode" javatype="int"/>
+        </extraparams>
+        <sql>
+            SELECT
+            COUNT(1)
+            FROM alcs_rule_info
+        </sql>
+        <sqlmap>
+            <![CDATA[
+           SELECT
+            COUNT(1)
+            FROM alcs_rule_info
+            where location_code=#locationCode#
+			]]>
+        </sqlmap>
+    </operation>
+
+    <operation name="selectForPage" multiplicity="many">
+        <extraparams>
+            <param name="locationCode" javatype="int"/>
+            <param name="deptCode" javatype="int"/>
+            <param name="offset" javatype="int"/>
+            <param name="limit" javatype="int"/>
+        </extraparams>
+        <sql>
+            select * from alcs_rule_info
+        </sql>
+        <sqlmap>
+            <![CDATA[
+            select * from alcs_rule_info
+            where location_code=#locationCode# and dept_code=#deptCode#
+            order by create_time desc LIMIT #offset#,#limit#
+			]]>
+        </sqlmap>
+    </operation>
+</table>

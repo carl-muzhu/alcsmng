@@ -1,0 +1,41 @@
+/*»ù´¡ÑùÊ½*/
+*{margin:0;padding:0;outline:none}
+img{border:0}
+ul{list-style: none;}
+a{text-decoration: none;color:#333333;}
+body{
+	font-family: "Microsoft YaHei","Î¢ÈíÑÅºÚ";
+	font-size:12px;
+	background-color:#F4F4F4;
+	color:#333333;
+}
+input[type="text"]{
+	font: normal normal normal 12px/normal "Microsoft YaHei";
+	color:#333333;
+}
+textarea{
+	font: normal normal normal 12px/normal "Microsoft YaHei";
+	color:#333333;
+	overflow:auto;
+}
+html,body{
+	width:100%;
+}
+.T1{
+	color:#333333;
+}
+.T2{
+	color:#FFFFFF;
+}
+.T3{
+	color:#B4D2EE;
+}
+.T4{
+	color:#3A97DA;
+}
+.T5{
+	color:#0166FF;
+}
+.T6{
+	color:#666666;
+}

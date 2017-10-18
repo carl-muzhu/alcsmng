@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table sqlname="alcs_user_info">
+
+    <!-- 创建优惠券满减规则-->
+    <operation name="saveUserInfo" paramType="object">
+        <sql>
+            INSERT INTO alcs_user_info (
+            user_id,
+            user_id,
+            password,
+            user_name,
+            dept_id,
+            user_type,
+            extension,
+            remark,
+            create_time,
+            update_time
+            )
+            VALUES (?,?,?,?,?,?,?,?,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)
+        </sql>
+    </operation>
+
+    <operation name="queryUserByUserId" resultType="object" paramType="int">
+        <sql>
+            select * from alcs_user_info WHERE user_id=?
+        </sql>
+    </operation>
+
+    <operation name="queryUserByAccount" resultType="object" paramType="String">
+        <sql>
+            select * from alcs_user_info WHERE account=?
+        </sql>
+    </operation>
+
+    <operation name="queryUserByUserIdList" multiplicity="many">
+        <extraparams>
+            <param name="userIdList" javatype="java.util.List"/>
+        </extraparams>
+        <sql>
+            select *
+            from alcs_user_info
+        </sql>
+        <sqlmap>
+            <![CDATA[
+        select
+        *
+        FROM alcs_user_info
+        where user_id in
+        <iterate property="userIdList" open="(" close=")" conjunction=",">
+        #userIdList[]#
+        </iterate>
+        ORDER BY user_id DESC
+        ]]>
+        </sqlmap>
+    </operation>
+
+    <operation name="queryUserByLocationCode" paramType="int" multiplicity="many">
+        <sql>
+            select * from alcs_user_info where location_code=? order by create_time desc
+        </sql>
+        <sqlmap>
+            <![CDATA[
+        select * from alcs_user_info where location_code=#locationCode# order by create_time desc
+        ]]>
+        </sqlmap>
+    </operation>
+
+    <operation name="queryAllUserInfo" multiplicity="many">
+        <sql>
+            select * from alcs_user_info
+        </sql>
+    </operation>
+
+    <operation name="selectForPageCount" resultClass="int">
+        <sql>
+            SELECT
+            COUNT(1)
+            FROM alcs_user_info
+        </sql>
+    </operation>
+
+    <operation name="listForPage" multiplicity="many">
+        <extraparams>
+            <param name="offset" javatype="int"/>
+            <param name="limit" javatype="int"/>
+        </extraparams>
+        <sql>
+            select *
+            from alcs_user_info
+        </sql>
+        <sqlmap>
+            <![CDATA[
+            select
+				*
+			 FROM alcs_user_info
+
+				ORDER BY create_time DESC LIMIT #offset#,#limit#
+			]]>
+        </sqlmap>
+    </operation>
+
+    <operation name="deleteByUserId" paramType="int">
+        <sql>
+            delete from alcs_user_info WHERE user_id=?
+        </sql>
+    </operation>
+</table>

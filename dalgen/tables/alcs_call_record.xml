@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table sqlname="alcs_call_record">
+    <!--<resultMap id="RM-CASE-INFO" class="com.yylc.alcs.common.dal.dataobject.CaseInfoDO">-->
+    <!--<result property="caseid" column="case_id" javaType="int" jdbcType="INT" nullValue="0"/>-->
+    <!--<result property="loanId" column="loan_id" javaType="int" jdbcType="INT"/>-->
+    <!--<result property="debtorId" column="debtor_id" javaType="int" jdbcType="INT"/>-->
+    <!--<result property="itemName" column="item_name" javaType="java.lang.String" jdbcType="VARCHAR"/>-->
+    <!--<result property="loanAmount" column="loan_amount" javaType="java.lang.Double" jdbcType="DOUBLE"/>-->
+    <!--<result property="pendingAmount" column="pending_amount" javaType="java.lang.Double" jdbcType="DOUBLE"/>-->
+    <!--<result property="repayAmount" column="repay_amount" javaType="java.lang.Double" jdbcType="DOUBLE"/>-->
+    <!--<result property="daysOverdue" column="days_overdue" javaType="int" jdbcType="INT"/>-->
+    <!--<result property="currentStatus" column="current_status" javaType="int" jdbcType="INT"/>-->
+    <!--<result property="currentResult" column="current_result" javaType="int" jdbcType="INT"/>-->
+    <!--<result property="assignFlag" column="assign_flag" javaType="int" jdbcType="INT"/>-->
+    <!--<result property="createTime" column="create_time" javaType="java.util.Date" jdbcType="DATETIME"/>-->
+    <!--<result property="updateTime" column="update_time" javaType="java.util.Date" jdbcType="DATETIME"/>-->
+    <!--</resultMap>-->
+
+    <operation name="listRecordByCaseId" resultType="object" multiplicity="many" paramType="int">
+        <extraparams>
+            <param name="caseId" javatype="int"/>
+            <param name="offset" javatype="int"/>
+            <param name="limit" javatype="int"/>
+        </extraparams>
+        <sql>
+            select *
+            from alcs_call_record
+        </sql>
+        <sqlmap>
+            <![CDATA[
+            select
+				*
+			 FROM alcs_call_record
+			 WHERE case_id=#caseId#
+
+				ORDER BY id DESC LIMIT #offset#,#limit#
+			]]>
+        </sqlmap>
+    </operation>
+
+    <operation name="saveCallRecord" paramType="object">
+        <sql>
+            INSERT INTO alcs_call_record (
+            id, case_id ,contact_id, record ,call_result, caller_name, phone_num ,create_time ,update_time ) VALUES (?,
+            ?, ?, ?, ?,?,
+            ?,
+            CURRENT_TIMESTAMP,CURRENT_TIMESTAMP)
+        </sql>
+    </operation>
+
+    <operation name="selectForPageCount" resultClass="int">
+
+        <sql>
+            SELECT
+            COUNT(1)
+            FROM alcs_call_record
+            WHERE case_id=?
+        </sql>
+    </operation>
+</table>

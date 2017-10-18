@@ -1,0 +1,5 @@
+<div class="alert alert-block" tag="warning" style="display:none">
+	<button type="button" class="close" data-dismiss="alert">¡Á</button>
+	<strong class="alert-heading"></strong> 
+	<p></p>
+</div>

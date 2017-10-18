@@ -1,0 +1,39 @@
+<html>
+<title>催收平台登陆</title>
+<meta charset=utf-8"/>
+<link rel="stylesheet" href="../layUi/layui/css/index.css"/>
+</head>
+<body>
+<div class="box">
+    <div class="header">
+        <img src="./resources/images/logo_index.png" alt="logo">
+    </div>
+    <div class="main">
+        <div class="aside">
+            <p>催收平台</p>
+            <div>
+                <span class="user"></span>
+                <input type="text" placeholder="请输入账号" class="input" autofocus="autofocus" name="account"
+                       id="account" value="">
+            </div>
+            <div>
+                <span class="user lock"></span>
+                <input type="password" placeholder="请输入密码" class="input" name="password" id="password" value="">
+            </div>
+            <div class="remember">
+						<span class="rect">
+							<span class="icon checked_js"></span>
+						</span>
+                记住用户名
+            </div>
+            <div>
+                <input type="button" value="登录" class="login_btn" onclick="submit()"/>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        Copyright © 2017 杭州盈火科技有限公司
+    </div>
+</div>
+</body>
+</html>

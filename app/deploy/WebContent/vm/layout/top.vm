@@ -1,0 +1,47 @@
+<div id="header">
+	<a href="$!app_path/background/index.htm">
+		<img style="height: 41px;  float: left;padding-left:10px;" src="$!staticServer/images/logo.png?v=$!v" /> 
+	</a>
+
+	<div id="user">
+		<span class='username' style="display:inline-block;width:32px;float:left;">
+		<img style="height: 32px;width:32px;margin-top:4px;margin-left:10px;" src="$!staticServer/images/user.png?v=$!v" />
+		</span>
+		<span style="display:inline-block;margin-left:20px;text-align:center; float:left;font-size:14px;font-weight:bolder;color:#f90;line-height:41px;">
+		欢迎您,$!{session.getAuthToken().loginInfo.userName}  
+		</span>
+		<ul id="top_menu">
+			<li><a href="#" targetUrl="$!app_path/background/user/simpleUserShow.htm?type=2" tag="openDialog" title="个人信息">个人信息</a></li>
+			<li><a href="#" targetUrl="$!app_path/background/user/modifyPasswdUI.htm?type=2" tag="openDialogIframe" title="修改密码">修改密码</a></li>
+			<li><a href="$!app_path/background/logout.htm">退出登录</a></li>
+		</ul>
+	</div>
+	<!--
+	<nav id="top_nav" style="float:right;">
+		#foreach($key in $!topMenus)
+			#if($key.type == 1) 
+				#set($count=0)
+				#foreach($child in $!functionMenu)
+					#if($!stringUtils.equals("$!child.parentKey","$!key.resKey"))
+						#if($count==0)
+							#if($!stringUtils.endsWith("$!child.resUrl",".htm"))
+								#set($pfix="?")
+							#elseif($!stringUtils.endsWith("$!child.resUrl",".htm?"))
+								#set($pfix="")
+							#else
+								#set($pfix="&")
+							#end
+							#set($moduleFirstUrl=$!child.resUrl)
+							#set($count=$velocityCount)
+							#set($functionId=$!child.id)
+						#end
+					#end
+				#end
+				#set($resourceId="resourceId=")
+				<a #if($!key.id==$!resourceModule.id)class="current"#end #if($!stringUtils.equals("PHONE","$!divice")) style="color:black;"#end href="#" onClick="javascript:showScreenCover();window.location='$!staticServer$!moduleFirstUrl$!pfix$!resourceId$!functionId';">$!key.name</a>
+			#end
+	    #end
+	</nav>
+	-->
+</div>
+<div class="Clear"></div>

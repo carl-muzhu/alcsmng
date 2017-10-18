@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table sqlname="alcs_debtor_info">
+
+    <operation name="queryByDebtorId" paramType="int">
+        <sql>
+            select *
+            from alcs_debtor_info
+            where debtor_id=?
+        </sql>
+    </operation>
+</table>

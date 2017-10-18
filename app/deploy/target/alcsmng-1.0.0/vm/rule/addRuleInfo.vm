@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">	
+  <title>新增分案设置</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="$!{staticServer}/layUi/layui/css/layui.css"  media="all">
+</head>
+<body>
+	<form class="layui-form" action=""  style="padding-top:35px;">
+	
+	  <div class="layui-form-item"  style="padding-top:30px;">
+	    <label class="layui-form-label">规则分类</label>
+	    <div class="layui-input-block" style="width:300px;">
+	      <select name="interest" id="interest" >
+	        <option value=""></option>
+	        <option value="0">写作</option>
+	        <option value="1" selected="">默认选择</option>
+	      </select>
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	      <label class="layui-form-label">经理姓名</label>
+	      <div class="layui-input-inline"  style="width:300px;">
+	        <select name="modules" id="modules" lay-verify="required" lay-search="">
+	          <option value="">直接选择或搜索选择</option>
+	          <option value="1">layer</option>
+	          <option value="2">form</option>
+	          <option value="3">layim</option>
+	        </select>
+	      </div>
+	    </div>
+	      <div class="layui-form-item">
+		    <label class="layui-form-label">规则名称</label>
+		    <div class="layui-input-block">
+		      <input id="rulename" name="rulename" lay-verify="required" style="width:300px;" placeholder="请输入" autocomplete="off" class="layui-input" type="text">
+		    </div>
+		  </div>
+		  <div class="layui-form-item" >
+		    <label class="layui-form-label">区域</label>
+		    <div class="layui-input-block" style="width:300px;">
+		      <select name="interest" id="interest" >
+		        <option value=""></option>
+		        <option value="0">写作</option>
+		        <option value="1" selected="">杭州</option>
+		      </select>
+		    </div>
+		  </div>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">组长姓名</label>
+	    <div class="layui-input-block" style="width:300px;">
+	      <select name="interest" id="interest" >
+	        <option value=""></option>
+	        <option value="0">写作</option>
+	        <option value="1" selected="">不设组长</option>
+	      </select>
+	    </div>
+	  </div>
+		<div class="layui-form-item">
+	      <label class="layui-form-label">跟进人员姓名</label>
+	      <div class="layui-input-inline"  style="width:300px;">
+	        <select name="followUser" id="followUser" lay-filter="filUser" lay-verify="required" lay-search="">
+	          <option value="">直接选择或搜索选择</option>
+	          <option value="1">张三</option>
+	          <option value="2">李四</option>
+	          <option value="3">王五</option>
+	        </select>
+	      </div>
+	    </div>
+	<div class="layui-form-item">
+		<ul id="followUsers">
+		</ul>
+	</div>
+	  <div class="layui-form-item">
+	    <div class="layui-input-block">
+	      <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+	      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+	    </div>
+	  </div>
+</form>
+
+<script src="$!{staticServer}/layUi/jquery/jquery-1.8.0.min.js"></script>  
+<script src="$!{staticServer}/layUi/layui/layui.js" charset="utf-8"></script>
+
+<script>
+layui.use(['form', 'layedit', 'laydate'], function(){
+  var form = layui.form
+  ,layer = layui.layer
+  ,layedit = layui.layedit
+  ,laydate = layui.laydate;
+  
+  //日期
+  laydate.render({
+    elem: '#date'
+  });
+  laydate.render({
+    elem: '#date1'
+  });
+
+  //监听提交
+  form.on('submit(demo1)', function(data){
+    layer.alert(JSON.stringify(data.field), {
+      title: '最终的提交信息'
+    })
+    return false;
+  }); 
+  
+	form.on('select(filUser)', function(data){
+		 $('<li id="'+data.value+'"></li>').appendTo('#followUsers');
+		 $('#'+data.value).append('跟进人员姓名：'+ $(this).val());
+		 //$('<input type="hidden" name="fUser" value="'+clientNo+'" >').appendTo($('#'+clientNo));
+		 //$('<a href="#" onclick="$(\'#'+clientNo+'\').remove();refresh();reloadCollateral (true);">&nbsp;删除</a>').appendTo($('#'+clientNo));
+		 //refresh();
+	});       
+  
+});	
+
+</script>            
+            
+</body>
+</html>
